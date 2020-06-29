@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t psinalberth/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run psinalberth/docker-react npm run test -- --coverage
